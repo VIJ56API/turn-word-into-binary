@@ -125,3 +125,69 @@ const renderHistory = () => {
 const secretModeBtn = document.getElementById('secretModeBtn');
 const resultDisplay = document.getElementById('resultDisplay');
 
+
+// --- SECRET CODES ---
+const emergencyCode = ['r', 'e', 'd'];
+const peaceCode = ['p', 'e', 'a', 'c', 'e'];
+const neonCode = ['n', 'e', 'o', 'n'];
+
+let inputSequence = [];
+
+// Find longest code length automatically
+const maxLength = Math.max(emergencyCode.length, peaceCode.length);
+
+window.addEventListener('keydown', (e) => {
+    const key = e.key.toLowerCase();
+
+    inputSequence.push(key);
+    inputSequence = inputSequence.slice(-maxLength);
+
+    // ----- EMERGENCY MODE -----
+    if (inputSequence.join('') === emergencyCode.join('')) {
+
+        // Remove peace mode
+        document.body.classList.remove('deep-think-mode');
+        // Remove neon mode
+        document.body.classList.remove('black-neon-mode');
+
+        // Add red mode
+        document.body.classList.add('emergency-red-mode');
+
+        // Clear sequence (VERY IMPORTANT)
+        inputSequence = [];
+
+        // Shake animation
+        document.body.style.animation = "shake 0.5s ease-in-out";
+        setTimeout(() => document.body.style.animation = "", 500);
+    }
+
+    // ----- PEACE MODE -----
+    if (inputSequence.join('') === peaceCode.join('')) {
+
+        // Remove red mode
+        document.body.classList.remove('emergency-red-mode');
+        // Remove neon mode
+        document.body.classList.remove('black-neon-mode');
+
+        // Add peace mode
+        document.body.classList.add('deep-think-mode');
+
+        // Clear sequence (VERY IMPORTANT)
+        inputSequence = [];
+
+        document.body.style.transition = "all 0.5s ease";
+    }
+
+    if (inputSequence.join('') === neonCode.join('')) {
+
+        // Remove other modes first
+        document.body.classList.remove('deep-think-mode');
+        // Remove red mode
+        document.body.classList.remove('emergency-red-mode');
+
+        // Activate black neon mode
+        document.body.classList.add('black-neon-mode');
+
+        inputSequence = [];
+    }
+});

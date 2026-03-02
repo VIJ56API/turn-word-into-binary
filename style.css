@@ -199,3 +199,72 @@ footer {
     border-top: 1px solid var(--border-color);
     font-size: 0.8rem;
 }
+/* Emergency Red Theme */
+.emergency-red-mode {
+    --bg-color: #2b0000;
+    --card-bg: #4a0000;
+    --neon-green: #ff3333; /* Turns green text to bright red */
+    --text-color: #ffffff;
+    --border-color: #ff0000;
+    --shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+}
+
+/* Ensure textareas and results also turn red */
+.emergency-red-mode textarea, 
+.emergency-red-mode .result-box {
+    border-color: #ff0000 !important;
+    color: #ff3333 !important;
+}
+/* Deep Think Mode - Purple & Blue */
+body.deep-think-mode {
+    --bg-color: #05001a !important; /* Very deep navy */
+    --card-bg: #0d002e !important; /* Dark purple/blue */
+    --neon-green: #bc13fe !important; /* Neon Purple */
+    --text-color: #00d4ff !important; /* Cyan blue text */
+    --border-color: #7a00ff !important; /* Purple border */
+    background: radial-gradient(circle, #0d002e 0%, #05001a 100%) !important;
+}
+
+/* Force colors for buttons and result boxes */
+body.deep-think-mode .btn-neon, 
+body.deep-think-mode textarea, 
+body.deep-think-mode .result-box,
+body.deep-think-mode .converter-card {
+    color: #00d4ff !important;
+    border-color: #7a00ff !important;
+    box-shadow: 0 0 20px rgba(122, 0, 255, 0.4) !important;
+    background-color: #000000 !important;
+}
+
+/* Change the title shadow to match */
+body.deep-think-mode .glitch-title {
+    text-shadow: 0 0 15px #bc13fe !important;
+}
+/* --- BLACK NEON MODE --- */
+body.black-neon-mode {
+    --bg-color: #000000 !important;
+    --card-bg: #050005 !important;
+    --text-color: #bc13fe !important;
+    --border-color: #bc13fe !important;
+
+    background-color: #000000 !important;
+}
+
+/* Neon glow effect */
+body.black-neon-mode .btn-neon,
+body.black-neon-mode textarea,
+body.black-neon-mode .result-box,
+body.black-neon-mode .converter-card {
+    background-color: #000000 !important;
+    color: #bc13fe !important;
+    border: 1px solid #bc13fe !important;
+    box-shadow: 0 0 15px #bc13fe, 
+                0 0 30px rgba(188, 19, 254, 0.6) !important;
+}
+
+/* Title glow */
+body.black-neon-mode .glitch-title {
+    text-shadow: 0 0 10px #bc13fe,
+                 0 0 25px #bc13fe,
+                 0 0 40px #bc13fe !important;
+}
