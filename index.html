@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Binary Secret Messenger - Convert text to 8-bit ASCII binary and back.">
+    <title>Binary Secret Messenger | Secure Encoding</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-mode">
+    <div class="matrix-bg" id="matrixBg"></div>
+
+    <div class="container">
+        <header>
+            <h1 class="glitch-title">Binary Secret <span class="cursor">_ ❤️</span></h1>
+            <p class="subtilte">Turn your words into a hidden wish for someone you care about.</p>
+        </header>
+
+        <div class="main-grid">
+            <section class="converter-card">
+                <label for="userInput">Enter Text or Binary:</label>
+                <textarea id="userInput" placeholder="Type your secret message here..."></textarea>
+                
+                <div class="button-group">
+                    <button id="toBinaryBtn" class="btn-neon">Text to Binary</button>
+                    <button id="toTextBtn" class="btn-neon">Binary to Text</button>
+                    <button id="clearBtn" class="btn-outline">Clear</button>
+                </div>
+            </section>
+
+            <section class="converter-card output-card">
+                <div class="output-header">
+                    <span>Result:</span>
+                    <button id="copyBtn" class="btn-small">Copy 📋</button>
+                </div>
+                <div id="resultDisplay" class="result-box">Waiting for input...</div>
+                
+                <div class="extra-tools">
+                    <button id="secretModeBtn" class="btn-secret">Toggle Secret Mode</button>
+                    <button id="themeToggle" class="btn-small">Light/Dark</button>
+                </div>
+            </section>
+        </div>
+
+        <section class="info-section">
+            <h3>📊 How It Works (Workflow)</h3>
+            <div class="workflow-steps">
+                <div class="step">1. User enters text string.</div>
+                <div class="step">2. JS loops through each character via <code>charCodeAt()</code>.</div>
+                <div class="step">3. Decimal ASCII value is converted to base-2 (Binary).</div>
+                <div class="step">4. Result is <code>padStart(8, '0')</code> to ensure 8-bit format.</div>
+                <div class="step">5. Reverse logic uses <code>parseInt(bin, 2)</code> to decode.</div>
+                <div class="step">6. Final output is displayed in the result box.</div>
+            </div>
+        </section>
+
+        <section class="history-section">
+            <section class="history-section">
+    <div class="history-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+        <h3>📜 Recent History</h3>
+        <button id="clearHistoryBtn" class="btn-small" style="color: #ff4444; border-color: #440000;">Clear History 🗑️</button>
+    </div>
+    <ul id="historyList"></ul>
+</section>
+
+
+        <footer>
+            <p><strong>Binary Secret Messenger</strong></p>
+            <p>Created by Vijender Pradhan | 2026</p>
+            <p class="note">Educational Project - Binary Encoding Demonstration</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
