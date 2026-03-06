@@ -130,6 +130,7 @@ const resultDisplay = document.getElementById('resultDisplay');
 const emergencyCode = ['r', 'e', 'd'];
 const peaceCode = ['p', 'e', 'a', 'c', 'e'];
 const neonCode = ['n', 'e', 'o', 'n'];
+const root = ['b','a','c','k'];
 
 let inputSequence = [];
 
@@ -190,4 +191,13 @@ window.addEventListener('keydown', (e) => {
 
         inputSequence = [];
     }
+
+     if (inputSequence.join('') === root.join('')){
+
+        document.body.classList.remove('deep-think-mode');
+        document.body.classList.remove('emergency-red-mode');
+        document.body.classList.remove('black-neon-mode');
+
+        inputSequence = [];
+     }
 });
